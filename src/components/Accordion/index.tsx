@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import { When } from '@components/shared/When'
 
 import { Chevron } from '@assets/icons/Chevron'
@@ -21,6 +23,10 @@ export const Accordion = ({
   initialTab = 1,
 }: AccordionProps) => {
   const { activeTab, setActiveTab } = useAccordion({ initialTab })
+
+  useEffect(() => {
+    setActiveTab(initialTab)
+  }, [initialTab, setActiveTab])
 
   return (
     <AccordionContainer>

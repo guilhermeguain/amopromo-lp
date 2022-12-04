@@ -20,6 +20,11 @@ export const AccordionItem = styled.div<Partial<AccordionProps>>`
     props.variant === 'footer' &&
     css`
       border-bottom: 1px solid var(--color-primary);
+
+      h3 {
+        font-weight: 600;
+        text-transform: uppercase;
+      }
     `}
 `
 

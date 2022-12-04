@@ -1,4 +1,19 @@
+import { useMemo } from 'react'
+import { MOBILE_BREAKPOINT } from '@lib/constants'
+
+import { useWindowSize } from '@hooks/useWindowSize'
+
 export const useBenefits = () => {
+  const { width } = useWindowSize()
+
+  const isMobile = useMemo(() => {
+    return width < MOBILE_BREAKPOINT
+  }, [width])
+
+  const title = isMobile
+    ? 'Por que ter um seguro de vida?'
+    : 'Mas por que ter um seguro de vida?'
+
   const mockupContent = (
     <>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
@@ -39,6 +54,8 @@ export const useBenefits = () => {
   ]
 
   return {
+    isMobile,
+    title,
     benefits,
   }
 }

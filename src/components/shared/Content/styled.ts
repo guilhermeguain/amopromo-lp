@@ -7,7 +7,7 @@ type ContainerProps = {
 
 export const Container = styled.div<ContainerProps>`
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 1rem;
 
   max-width: var(--content-width);
 

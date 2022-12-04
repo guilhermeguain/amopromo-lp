@@ -1,13 +1,15 @@
-import { useMemo } from 'react'
-import { MOBILE_BREAKPOINT } from '@lib/constants'
+import { useMemo, useState } from 'react'
+import { DESKTOP_BREAKPOINT } from '@lib/constants'
 
 import { useWindowSize } from '@hooks/useWindowSize'
 
 export const useHeader = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
   const { width } = useWindowSize()
 
   const isMobile = useMemo(() => {
-    return width < MOBILE_BREAKPOINT
+    return width < DESKTOP_BREAKPOINT
   }, [width])
 
   const items = [
@@ -20,7 +22,9 @@ export const useHeader = () => {
   ]
 
   return {
-    items,
+    isOpen,
+    setIsOpen,
     isMobile,
+    items,
   }
 }

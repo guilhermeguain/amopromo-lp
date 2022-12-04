@@ -18,29 +18,34 @@ import {
 } from './styled'
 
 export const CallToAction = () => {
-  const { title, buttonText } = useCallToAction()
+  const { isDesktop, title, description, buttonText } = useCallToAction()
 
   return (
-    <Container>
+    <Container isDesktop={isDesktop}>
       <Body>
         <Column>
           <Title>{title}</Title>
         </Column>
         <Column>
           <ColumnInner>
-            <Description>
-              Ligue pra gente e receba uma consultoria personalizada
-              gratuitamente!
-            </Description>
+            <Description>{description}</Description>
+
             <PhoneLink href="tel:99999999999">
               <Phone color="#83AF38" size={24} />
               <PhoneLinkLabel>(99) 99999.9999</PhoneLinkLabel>
             </PhoneLink>
-            <Button icon={<WhatsApp />}>{buttonText}</Button>
+
+            <Details>
+              Atendemos pelo telefone de seg. a sex. das 9h às 17h
+            </Details>
+
+            <Button
+              icon={<WhatsApp />}
+              fontSize={isDesktop ? 'small' : 'x-small'}
+            >
+              {buttonText}
+            </Button>
           </ColumnInner>
-          <Details>
-            Atendemos pelo telefone de seg. a sex. das 9h às 17h
-          </Details>
         </Column>
       </Body>
     </Container>

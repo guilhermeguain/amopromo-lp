@@ -5,7 +5,7 @@ export const Container = styled.section`
 `
 
 export const Body = styled.div`
-  padding: 2rem 0;
+  padding: 0;
 
   max-width: 100%;
 
@@ -14,7 +14,7 @@ export const Body = styled.div`
   align-items: center;
   gap: 2rem;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1200px) {
     flex-direction: row;
   }
 `
@@ -40,7 +40,12 @@ export const Column = styled.div`
 
 export const Image = styled.img`
   max-width: 100%;
+  width: 400px;
   height: auto;
+
+  @media screen and (min-width: 1200px) {
+    width: auto;
+  }
 `
 
 export const Title = styled.h2`

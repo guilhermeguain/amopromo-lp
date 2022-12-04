@@ -1,30 +1,15 @@
+import { When } from '@components/shared/When'
+import { Content } from '@components/shared/Content'
+
 import { Button } from '@components/shared/Button'
 import { Accordion } from '@components/Accordion'
+import { PaymentMethods } from '@components/PaymentMethods'
 import { BottomBar } from '@components/BottomBar'
 
-import { SmartPhone } from '@assets/icons/SmartPhone'
+import { SmartPhoneNew } from '@assets/icons/SmartPhoneNew'
 import { WhatsApp } from '@assets/icons/WhatsApp'
+import { Help } from '@assets/icons/Help'
 import { Email } from '@assets/icons/Email'
-
-import { MasterCard } from '@assets/icons/MasterCard'
-import { Visa } from '@assets/icons/Visa'
-import { AmericanExpress } from '@assets/icons/AmericanExpress'
-import { Elo } from '@assets/icons/Elo'
-import { DinersClub } from '@assets/icons/DinersClub'
-import { Hipercard } from '@assets/icons/Hipercard'
-
-import { Boleto } from '@assets/icons/Boleto'
-import { DescontoTag } from '@assets/icons/DescontoTag'
-
-import { BancoDoBrasil } from '@assets/icons/BancoDoBrasil'
-import { Bradesco } from '@assets/icons/Bradesco'
-import { Itau } from '@assets/icons/Itau'
-import { Santander } from '@assets/icons/Santander'
-import { BancoOriginal } from '@assets/icons/BancoOriginal'
-import { BancoInter } from '@assets/icons/BancoInter'
-import { BancoBs2 } from '@assets/icons/BancoBs2'
-
-import { Pix } from '@assets/icons/Pix'
 
 import { useFooter } from './hooks/useFooter'
 
@@ -33,20 +18,27 @@ import {
   ContainerDecoration,
   ContainerDecorationColor,
   Body,
-  BodySection,
-  BodySectionGroup,
+  BodySection1,
+  BodySection2,
+  BodySection3,
+  BodySectionGroup1,
+  BodySectionGroup2,
+  BodySectionGroup2Inner,
+  BodySectionGroup3,
   Logo,
   SocialNetworks,
+  SocialNetworksText,
   SocialNetworksLink,
   SocialNetworksIcon,
   Title,
-  Text,
   Buttons,
-  IconsList,
+  Menus,
+  MenusItem,
+  MenusItemTitle,
 } from './styled'
 
 export const Footer = () => {
-  const { colors, socialNetworks, tabs } = useFooter()
+  const { isMobile, colors, socialNetworks, tabs } = useFooter()
 
   return (
     <Container>
@@ -55,87 +47,113 @@ export const Footer = () => {
           <ContainerDecorationColor key={index} color={color} />
         ))}
       </ContainerDecoration>
-      <Body>
-        <BodySection>
-          <Logo
-            src="/images/logo.png"
-            alt="Seguros Promo"
-            width="127"
-            height="22"
-          />
-          <SocialNetworks>
-            {socialNetworks.map(({ id, icon: Icon, color, link }) => (
-              <SocialNetworksLink key={id} href={link} color={color}>
-                <SocialNetworksIcon>
-                  <Icon />
-                </SocialNetworksIcon>
-              </SocialNetworksLink>
-            ))}
-          </SocialNetworks>
-        </BodySection>
-        <BodySection>
-          <BodySectionGroup>
-            <Title>Central de vendas:</Title>
-            <Buttons>
-              <Button variant="footer" icon={<SmartPhone />}>
-                (31) 4000-1667
-              </Button>
-              <Button variant="footer" icon={<WhatsApp />}>
-                (31) 98204-2542
-              </Button>
-            </Buttons>
-          </BodySectionGroup>
-          <BodySectionGroup>
-            <Title>Atendimento:</Title>
-            <Buttons>
-              <Button variant="footer" icon={<SmartPhone />}>
-                (31) 4000-1667
-              </Button>
-              <Button variant="footer">Central de Ajuda</Button>
-              <Button variant="footer" icon={<Email />} fontSize="small">
-                atendimento@segurospromo.com.br
-              </Button>
-            </Buttons>
-          </BodySectionGroup>
-        </BodySection>
-        <BodySection>
-          <BodySectionGroup>
-            <Accordion items={tabs} variant="footer" />
-          </BodySectionGroup>
-          <BodySectionGroup>
-            <Title>Formas de pagamento:</Title>
-            <Text>Crédito em até 12 vezes</Text>
-            <IconsList>
-              <MasterCard />
-              <Visa />
-              <AmericanExpress />
-              <Elo />
-              <DinersClub />
-              <Hipercard />
-            </IconsList>
-            <Text>Boleto bancário</Text>
-            <IconsList>
-              <Boleto />
-              <DescontoTag />
-            </IconsList>
-            <Text>Transferência bancária</Text>
-            <IconsList>
-              <BancoDoBrasil />
-              <Bradesco />
-              <Itau />
-              <Santander />
+      <Content>
+        <Body>
+          <BodySection1>
+            <Logo
+              src="/images/logo.png"
+              alt="Seguros Promo"
+              width="127"
+              height="22"
+            />
+            <SocialNetworks>
+              <When value={!isMobile}>
+                <SocialNetworksText>Acompanhe a gente:</SocialNetworksText>
+              </When>
+              {socialNetworks.map(({ id, icon: Icon, color, link }) => (
+                <SocialNetworksLink key={id} href={link} color={color}>
+                  <SocialNetworksIcon>
+                    <Icon />
+                  </SocialNetworksIcon>
+                </SocialNetworksLink>
+              ))}
+            </SocialNetworks>
+          </BodySection1>
 
-              <BancoOriginal />
-              <BancoInter />
-              <BancoBs2 />
-            </IconsList>
-            <Text>Pagamento com pix</Text>
-            <IconsList>
-              <Pix />
-            </IconsList>
-          </BodySectionGroup>
-        </BodySection>
-      </Body>
+          <BodySection2>
+            <BodySectionGroup1>
+              <When value={isMobile}>
+                <Accordion
+                  items={tabs}
+                  variant="footer"
+                  initialTab={isMobile ? 1 : 0}
+                />
+              </When>
+              <When value={!isMobile}>
+                <Menus>
+                  {tabs.map(({ id, title, content }) => (
+                    <MenusItem key={id}>
+                      <MenusItemTitle>{title}</MenusItemTitle>
+                      {content}
+                    </MenusItem>
+                  ))}
+                </Menus>
+              </When>
+            </BodySectionGroup1>
+
+            <BodySectionGroup2>
+              <BodySectionGroup2Inner>
+                <Title>Central de vendas:</Title>
+                <Buttons>
+                  <Button
+                    variant={isMobile ? 'footer' : 'link'}
+                    icon={
+                      <SmartPhoneNew color={isMobile ? '#fff' : '#33794A'} />
+                    }
+                  >
+                    (31) 4000-1667
+                  </Button>
+                  <Button
+                    variant={isMobile ? 'footer' : 'link'}
+                    icon={
+                      <WhatsApp
+                        size={26}
+                        color={isMobile ? '#fff' : '#33794A'}
+                      />
+                    }
+                  >
+                    (31) 98204-2542
+                  </Button>
+                </Buttons>
+              </BodySectionGroup2Inner>
+              <BodySectionGroup2Inner>
+                <Title>Atendimento:</Title>
+                <Buttons>
+                  <Button
+                    variant={isMobile ? 'footer' : 'link'}
+                    icon={
+                      <SmartPhoneNew color={isMobile ? '#fff' : '#33794A'} />
+                    }
+                  >
+                    (31) 4000-1667
+                  </Button>
+                  <Button
+                    variant={isMobile ? 'footer' : 'link'}
+                    icon={isMobile ? <></> : <Help />}
+                  >
+                    Central de Ajuda
+                  </Button>
+                  <When value={isMobile}>
+                    <Button
+                      variant={isMobile ? 'footer' : 'link'}
+                      icon={<Email color={isMobile ? '#fff' : '#33794A'} />}
+                      fontSize="small"
+                    >
+                      atendimento@segurospromo.com.br
+                    </Button>
+                  </When>
+                </Buttons>
+              </BodySectionGroup2Inner>
+            </BodySectionGroup2>
+          </BodySection2>
+
+          <BodySection3>
+            <BodySectionGroup3>
+              <PaymentMethods />
+            </BodySectionGroup3>
+          </BodySection3>
+        </Body>
+      </Content>
       <BottomBar />
     </Container>
   )

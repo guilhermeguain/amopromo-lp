@@ -1,11 +1,13 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  padding: 4rem 0;
+  padding: 2rem 0;
 
   text-align: center;
 
   @media screen and (min-width: 768px) {
+    padding: 4rem 0;
+
     background-color: #f8f8f8;
   }
 `
@@ -32,7 +34,7 @@ export const List = styled.div`
   gap: 1.25rem;
 
   @media screen and (min-width: 768px) {
-    flex-direction: row;
+    flex-flow: row wrap;
   }
 `
 
@@ -50,6 +52,16 @@ export const ListItem = styled.div`
 
   background-color: #fff;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+
+  @media screen and (min-width: 768px) {
+    flex: initial;
+    width: calc(50% - 0.625rem);
+  }
+
+  @media screen and (min-width: 1200px) {
+    flex: 1;
+    width: auto;
+  }
 `
 
 export const ListItemTitle = styled.h3`

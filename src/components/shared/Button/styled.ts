@@ -42,6 +42,26 @@ export const Container = styled.button<ButtonProps>`
     `}
 
   ${(props) =>
+    props.variant === 'link' &&
+    css`
+      border-radius: 0;
+      padding: 0;
+
+      justify-content: flex-start;
+
+      box-shadow: none;
+      background: transparent;
+
+      color: var(--color-primary);
+
+      font-weight: 400;
+
+      svg {
+        min-width: 2rem;
+      }
+    `}
+
+  ${(props) =>
     props.variant === 'footer' &&
     css`
       border-radius: 8px;
@@ -51,9 +71,16 @@ export const Container = styled.button<ButtonProps>`
       font-weight: 300;
     `}
 
-    ${(props) =>
+  ${(props) =>
     props.fontSize === 'small' &&
     css`
       font-size: 12px;
+    `}
+
+  ${(props) =>
+    props.fontSize === 'x-small' &&
+    css`
+      font-size: 10px;
+      font-weight: 400;
     `}
 `

@@ -1,8 +1,8 @@
 export const User = () => {
   return (
     <svg
-      width="13.5"
-      height="16.5"
+      width="9"
+      height="11"
       viewBox="0 0 9 11"
       fill="#33794A"
       xmlns="http://www.w3.org/2000/svg"
