@@ -5,7 +5,8 @@
 <p align="center">
   <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>
+  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://amopromo-lp.vercel.app/" target="_blank">Live Demo</a>
 </p>
 
 <br>
@@ -33,3 +34,13 @@ Original project: https://gist.github.com/vitorfavila/1d49f3f43ad97068b601dd7548
 In the link below you will find the layout of the web and mobile project.
 
 - [Layout](https://www.figma.com/file/7ezdGdsUBL2lMMGArAErDO/Teste-WebDev?node-id=0%3A1)
+
+## ✔️ Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
