@@ -24,6 +24,7 @@ export const BottomBar = () => {
               <Image
                 key={id}
                 src={`/images/${image}.png`}
+                alt={image}
                 width={width}
                 height={height}
               />

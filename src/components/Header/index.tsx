@@ -63,7 +63,7 @@ export const Header = () => {
                   </MenuLink>
                 ))}
               </Menu>
-              <MenuButton>
+              <MenuButton href="#">
                 <MenuButtonIcon>
                   <User />
                 </MenuButtonIcon>
