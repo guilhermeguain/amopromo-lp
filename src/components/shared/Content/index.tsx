@@ -1,17 +1,15 @@
-import { Flex, FlexProps } from '@chakra-ui/react'
+import { ReactElement, CSSProperties } from 'react'
+import { Container } from './styled'
 
-export const Content = ({ children, ...rest }: FlexProps) => {
+type ContentProps = {
+  children: ReactElement
+  style?: CSSProperties
+}
+
+export const Content = ({ children, style, ...rest }: ContentProps) => {
   return (
-    <Flex
-      as="main"
-      w="100%"
-      maxWidth={'7xl'}
-      mx="auto"
-      px={4}
-      direction="column"
-      {...rest}
-    >
-      <>{children}</>
-    </Flex>
+    <Container style={style} {...rest}>
+      {children}
+    </Container>
   )
 }

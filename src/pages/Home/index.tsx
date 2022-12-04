@@ -1,11 +1,19 @@
-import { Box, Text } from '@chakra-ui/react'
+import { Hero } from '@components/Hero'
+import { Featured } from '@components/Featured'
+import { Services } from '@components/Services'
+import { Benefits } from '@components/Benefits'
+import { CallToAction } from '@components/CallToAction'
 
-import bgHero from '@assets/images/bg-hero.jpg'
+import { Container } from './styled'
 
 export const Home = () => {
   return (
-    <Box bgImage={bgHero} bgRepeat="no-repeat" bgSize="cover" h="calc(100vh)">
-      <Text>Home</Text>
-    </Box>
+    <Container>
+      <Hero />
+      <Featured />
+      <Services />
+      <Benefits />
+      <CallToAction />
+    </Container>
   )
 }
