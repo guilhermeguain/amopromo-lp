@@ -60,8 +60,13 @@ export const Footer = () => {
               <When value={!isMobile}>
                 <SocialNetworksText>Acompanhe a gente:</SocialNetworksText>
               </When>
-              {socialNetworks.map(({ id, icon: Icon, color, link }) => (
-                <SocialNetworksLink key={id} href={link} color={color}>
+              {socialNetworks.map(({ id, label, icon: Icon, color, link }) => (
+                <SocialNetworksLink
+                  key={id}
+                  href={link}
+                  color={color}
+                  title={label}
+                >
                   <SocialNetworksIcon>
                     <Icon />
                   </SocialNetworksIcon>

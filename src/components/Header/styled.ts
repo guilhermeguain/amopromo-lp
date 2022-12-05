@@ -34,7 +34,11 @@ export const Logo = styled.a`
 
 export const LogoImage = styled.img``
 
-export const MobileButton = styled.a`
+export const MobileButton = styled.button`
+  border: none;
+
+  background: transparent;
+
   display: flex;
   flex-direction: row;
   align-items: center;

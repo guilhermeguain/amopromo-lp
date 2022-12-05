@@ -17,10 +17,11 @@ export const useFooter = () => {
   const colors = ['#64BA00', '#68629C', '#FFD012', '#007E47']
 
   const socialNetworks = [
-    { id: 1, icon: Facebook, color: '#3B5998', link: '#' },
-    { id: 2, icon: Twitter, color: '#47B2DE', link: '#' },
+    { id: 1, label: 'Facebook', icon: Facebook, color: '#3B5998', link: '#' },
+    { id: 2, label: 'Twitter', icon: Twitter, color: '#47B2DE', link: '#' },
     {
       id: 3,
+      label: 'Instagram',
       icon: Instagram,
       color:
         'linear-gradient(135.91deg, #5B6AD9 10.12%, #954DC0 28.81%, #C33E9F 70.24%, #FBC571 93.66%)',
