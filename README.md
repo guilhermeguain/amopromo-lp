@@ -37,7 +37,15 @@ In the link below you will find the layout of the web and mobile project.
 
 ## ✔️ Getting Started
 
-First, run the development server:
+Run the command to install the dependencies:
+
+```bash
+yarn
+# or
+yarn install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
