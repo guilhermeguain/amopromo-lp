@@ -60,6 +60,18 @@ export const AccordionItemBody = styled.div<AccordionItemBodyProps>`
   overflow: hidden;
   max-height: 0;
 
+  a {
+    font-size: 0.875rem;
+
+    text-decoration: none;
+    color: var(--color-gray);
+
+    &:hover {
+      text-decoration: underline;
+      color: var(--color-secondary);
+    }
+  }
+
   ${(props) =>
     props.isActive &&
     css`
